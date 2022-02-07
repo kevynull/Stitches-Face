@@ -1,26 +1,26 @@
-# Search导航页Next版
+# Search 导航页 Next 版
 
 ## **原项目：**[Search](https://github.com/virzs/Search)
 
-Search项目的React版本，相较于原项目从原生js更改为React，引入新的设计和交互，原项目已实现或未实现的内容将移植到此项目,并且此项目将加入更多新功能。
+Search 项目的 React 版本，相较于原项目从原生 js 更改为 React，引入新的设计和交互，原项目已实现或未实现的内容将移植到此项目,并且此项目将加入更多新功能。
 
 ## 在线地址
 
 [Search Next](http://dev.search.virs.xyz)
 
-在线地址中内容可能不会保持最新，如需查看最新效果请clone该项目运行。
+在线地址中内容可能不会保持最新，如需查看最新效果请 clone 该项目运行。
 
 另外，在线地址中为开发环境，仅用于展示功能，不保证数据在每个版本兼容。
 
 ## 在线交流
 
-QQ群：859791575
+QQ 群：859791575
 
 欢迎提供意见或建议
 
 ## 启动项目
 
-需要nodejs（版本不限，建议最新）、yarn（npm也可以）
+需要 nodejs（版本不限，建议最新）、yarn（npm 也可以）
 
 安装依赖：
 
@@ -42,7 +42,7 @@ yarn build
 
 代码重复率分析：
 
-``` bash
+```bash
 yarn jscpd
 ```
 
@@ -64,7 +64,7 @@ yarn jscpd
 
 [历史截图](./docs/历史版本图片.md)
 
-## Star趋势
+## Star 趋势
 
 [![Stargazers over time](https://starchart.cc/virzs/Search-Next.svg)](https://starchart.cc/virzs/Search-Next)
 
@@ -96,11 +96,253 @@ yarn jscpd
 
 关于打包运行，可以参考
 
-[nestJs项目打包部署的方法](https://www.cnblogs.com/xianxiaobo/p/12162309.html)
+[nestJs 项目打包部署的方法](https://www.cnblogs.com/xianxiaobo/p/12162309.html)
 
 **多语言：**
 
-VS Code 安装i18n Ally插件
+VS Code 安装 i18n Ally 插件
+
+## 代码结构
+
+```
+src
+├── App.tsx
+├── antd-global.css
+├── apis
+│   ├── auth
+│   │   └── index.ts
+│   ├── baidu
+│   │   └── index.ts
+│   ├── common
+│   │   └── index.ts
+│   ├── github
+│   │   ├── index.ts
+│   │   └── interface.d.ts
+│   ├── hitokoto
+│   │   ├── index.ts
+│   │   └── interface.d.ts
+│   ├── search
+│   │   └── index.ts
+│   ├── setting
+│   │   ├── background.ts
+│   │   └── otherApis.ts
+│   └── site
+│       └── index.ts
+├── components
+│   ├── global
+│   │   ├── card
+│   │   │   └── outline-card.tsx
+│   │   ├── copyright.tsx
+│   │   ├── index.tsx
+│   │   ├── loading
+│   │   │   ├── index.style.less
+│   │   │   └── index.tsx
+│   │   ├── logo
+│   │   │   ├── Clock1
+│   │   │   │   ├── data.ts
+│   │   │   │   ├── digit.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── separator.tsx
+│   │   │   ├── Clock2
+│   │   │   │   └── index.tsx
+│   │   │   ├── Clock3
+│   │   │   │   ├── data.ts
+│   │   │   │   ├── digit.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── separator.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── interface.ts
+│   │   │   └── timeClockContext.tsx
+│   │   ├── markdown
+│   │   │   └── index.tsx
+│   │   ├── renderContent.tsx
+│   │   └── virtual
+│   │       ├── grid.tsx
+│   │       ├── index.tsx
+│   │       └── list.tsx
+│   ├── layout
+│   │   ├── index.tsx
+│   │   ├── menu-layout
+│   │   │   ├── header.tsx
+│   │   │   ├── index.tsx
+│   │   │   └── itemHeader.tsx
+│   │   └── menu-layout-new
+│   │       ├── index.tsx
+│   │       └── menu.tsx
+│   └── md-custom
+│       ├── card
+│       │   └── BorderColorCard.tsx
+│       ├── configForm
+│       │   └── index.tsx
+│       ├── dataGrid
+│       │   └── index.tsx
+│       ├── dialog
+│       │   ├── confirm.tsx
+│       │   ├── dialog.tsx
+│       │   ├── dialogConfirm.tsx
+│       │   └── index.tsx
+│       ├── drawer
+│       │   ├── drawer.tsx
+│       │   └── index.tsx
+│       ├── form
+│       │   ├── form.tsx
+│       │   ├── formItem.tsx
+│       │   ├── index.tsx
+│       │   └── select.tsx
+│       ├── formModal
+│       │   └── index.tsx
+│       ├── menu
+│       │   └── index.tsx
+│       ├── progress
+│       │   ├── BorderLinearProgress.tsx
+│       │   └── index.tsx
+│       ├── table
+│       │   └── index.tsx
+│       └── tabs
+│           └── index.tsx
+├── config
+│   └── router.tsx
+├── data
+│   ├── README.md
+│   ├── account
+│   │   ├── default.ts
+│   │   ├── guard.ts
+│   │   └── interface.ts
+│   ├── console
+│   │   └── log.ts
+│   ├── engine
+│   │   └── index.ts
+│   ├── github
+│   │   └── gitemoji.ts
+│   ├── help
+│   │   ├── commit_website.md
+│   │   ├── develop
+│   │   │   └── �\203��\210\206�\226\207件说�\230\216.md
+│   │   └── index.ts
+│   ├── logo
+│   │   └── index.ts
+│   ├── main
+│   │   └── index.ts
+│   ├── navigation
+│   │   ├── all.ts
+│   │   ├── classify.ts
+│   │   ├── index.ts
+│   │   ├── index.tsx
+│   │   ├── interface.ts
+│   │   └── types
+│   │       └── classify.ts
+│   ├── npm
+│   │   └── package.ts
+│   └── website.ts
+├── favicon.svg
+├── hooks
+│   └── debounce.ts
+├── index.css
+├── locales
+│   ├── en-US.json
+│   ├── index.ts
+│   └── zh-CN.json
+├── logo.svg
+├── main.tsx
+├── pages
+│   ├── help
+│   │   └── index.tsx
+│   ├── index
+│   │   ├── components
+│   │   │   ├── nav-drawer
+│   │   │   │   └── index.tsx
+│   │   │   ├── search-input
+│   │   │   │   ├── engineChip.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── sugPopper.tsx
+│   │   │   └── sites
+│   │   │       ├── README.md
+│   │   │       ├── dialog.tsx
+│   │   │       ├── index.tsx
+│   │   │       └── siteCard.tsx
+│   │   └── index.tsx
+│   ├── navigation
+│   │   ├── components
+│   │   │   ├── WebisteCard.tsx
+│   │   │   ├── searchInput.tsx
+│   │   │   └── websiteCardNew.tsx
+│   │   └── index.tsx
+│   └── setting
+│       ├── components
+│       │   ├── contentList.tsx
+│       │   ├── contentTitle.tsx
+│       │   ├── itemAccordion.tsx
+│       │   └── itemCard.tsx
+│       └── index.tsx
+├── typings
+│   ├── global.ts
+│   └── index.ts
+├── utils
+│   ├── color.ts
+│   ├── common.ts
+│   ├── info
+│   │   └── index.ts
+│   ├── regexp
+│   │   └── index.ts
+│   ├── request
+│   │   ├── index.ts
+│   │   └── interface.d.ts
+│   ├── storage
+│   │   ├── README.md
+│   │   └── index.ts
+│   ├── theme.ts
+│   └── updateData.ts
+├── views
+│   └── setting
+│       ├── about
+│       │   ├── beta
+│       │   │   ├── docs.mdx
+│       │   │   └── index.tsx
+│       │   ├── commits
+│       │   │   └── index.tsx
+│       │   ├── index.tsx
+│       │   └── releases
+│       │       └── index.tsx
+│       ├── auth
+│       │   ├── components
+│       │   │   ├── accountCard.tsx
+│       │   │   └── handleAccountDialog.tsx
+│       │   ├── index.tsx
+│       │   ├── info.tsx
+│       │   ├── others.tsx
+│       │   └── utils
+│       │       └── acount.ts
+│       ├── data
+│       │   ├── backup
+│       │   │   └── index.tsx
+│       │   └── index.tsx
+│       ├── features
+│       │   ├── engine
+│       │   │   └── index.tsx
+│       │   ├── index.tsx
+│       │   └── message
+│       │       └── index.tsx
+│       ├── lab
+│       │   └── index.tsx
+│       ├── navigation
+│       │   └── index.tsx
+│       ├── otherApis
+│       │   └── index.tsx
+│       └── personalise
+│           ├── background
+│           │   ├── everyDay.tsx
+│           │   ├── index.tsx
+│           │   ├── link.tsx
+│           │   └── random.tsx
+│           ├── components
+│           │   └── example.tsx
+│           ├── index.tsx
+│           ├── logo
+│           │   └── index.tsx
+│           └── theme
+│               └── theme.tsx
+└── vite-env.d.ts
+```
 
 ## 引用资源
 
@@ -110,7 +352,7 @@ VS Code 安装i18n Ally插件
 
 ### GPL-3.0 License
 
-由 [Vir](https://github.com/virzs) 维护的 `Search-Next` 仓库及后端u你代码仓库默认遵循`GPL-3.0` 协议开源发布
+由 [Vir](https://github.com/virzs) 维护的 `Search-Next` 仓库及后端 u 你代码仓库默认遵循`GPL-3.0` 协议开源发布
 
 下面简述由 `GPL-3.0` 带来的约束条款( 本处解释若无特别说明无 法律效益, 仅仅帮助了解协议大体内容, `GPL-3.0` 最终解释权应当归属自由软件基金会 )
 
