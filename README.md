@@ -1,6 +1,8 @@
 # Stitches-Face
 
-Stitches-Face 为「玩具箱」系列的 Web UI 工程。由于与原始项目的定位纯在差异，本项目针对个性化需求做了对应的代码改装，以及三方接口调用。以作为个人**PetProject**的入口。
+Stitches-Face 为「玩具箱」系列的 Web UI 工程。由于与原始项目的定位纯在差异，本项目针对个性化需求做了对应的代码改装，以及三方接口调用。
+
+**原项目：**[Search-Next](https://github.com/virzs/Search-Next)
 
 
 
@@ -69,246 +71,25 @@ VS Code 安装 i18n Ally 插件
 
 
 
-## 代码结构
+## 项目结构
 
 ```
+
 src
-├── App.tsx
-├── antd-global.css
-├── apis
-│   ├── auth
-│   │   └── index.ts
-│   ├── baidu
-│   │   └── index.ts
-│   ├── common
-│   │   └── index.ts
-│   ├── github
-│   │   ├── index.ts
-│   │   └── interface.d.ts
-│   ├── hitokoto
-│   │   ├── index.ts
-│   │   └── interface.d.ts
-│   ├── search
-│   │   └── index.ts
-│   ├── setting
-│   │   ├── background.ts
-│   │   └── otherApis.ts
-│   └── site
-│       └── index.ts
-├── components
-│   ├── global
-│   │   ├── card
-│   │   │   └── outline-card.tsx
-│   │   ├── copyright.tsx
-│   │   ├── index.tsx
-│   │   ├── loading
-│   │   │   ├── index.style.less
-│   │   │   └── index.tsx
-│   │   ├── logo
-│   │   │   ├── Clock1
-│   │   │   │   ├── data.ts
-│   │   │   │   ├── digit.tsx
-│   │   │   │   ├── index.tsx
-│   │   │   │   └── separator.tsx
-│   │   │   ├── Clock2
-│   │   │   │   └── index.tsx
-│   │   │   ├── Clock3
-│   │   │   │   ├── data.ts
-│   │   │   │   ├── digit.tsx
-│   │   │   │   ├── index.tsx
-│   │   │   │   └── separator.tsx
-│   │   │   ├── index.tsx
-│   │   │   ├── interface.ts
-│   │   │   └── timeClockContext.tsx
-│   │   ├── markdown
-│   │   │   └── index.tsx
-│   │   ├── renderContent.tsx
-│   │   └── virtual
-│   │       ├── grid.tsx
-│   │       ├── index.tsx
-│   │       └── list.tsx
-│   ├── layout
-│   │   ├── index.tsx
-│   │   ├── menu-layout
-│   │   │   ├── header.tsx
-│   │   │   ├── index.tsx
-│   │   │   └── itemHeader.tsx
-│   │   └── menu-layout-new
-│   │       ├── index.tsx
-│   │       └── menu.tsx
-│   └── md-custom
-│       ├── card
-│       │   └── BorderColorCard.tsx
-│       ├── configForm
-│       │   └── index.tsx
-│       ├── dataGrid
-│       │   └── index.tsx
-│       ├── dialog
-│       │   ├── confirm.tsx
-│       │   ├── dialog.tsx
-│       │   ├── dialogConfirm.tsx
-│       │   └── index.tsx
-│       ├── drawer
-│       │   ├── drawer.tsx
-│       │   └── index.tsx
-│       ├── form
-│       │   ├── form.tsx
-│       │   ├── formItem.tsx
-│       │   ├── index.tsx
-│       │   └── select.tsx
-│       ├── formModal
-│       │   └── index.tsx
-│       ├── menu
-│       │   └── index.tsx
-│       ├── progress
-│       │   ├── BorderLinearProgress.tsx
-│       │   └── index.tsx
-│       ├── table
-│       │   └── index.tsx
-│       └── tabs
-│           └── index.tsx
-├── config
-│   └── router.tsx
-├── data
-│   ├── README.md
-│   ├── account
-│   │   ├── default.ts
-│   │   ├── guard.ts
-│   │   └── interface.ts
-│   ├── console
-│   │   └── log.ts
-│   ├── engine
-│   │   └── index.ts
-│   ├── github
-│   │   └── gitemoji.ts
-│   ├── help
-│   │   ├── commit_website.md
-│   │   ├── develop
-│   │   │   └── 部分文件说明.md
-│   │   └── index.ts
-│   ├── logo
-│   │   └── index.ts
-│   ├── main
-│   │   └── index.ts
-│   ├── navigation
-│   │   ├── all.ts
-│   │   ├── classify.ts
-│   │   ├── index.ts
-│   │   ├── index.tsx
-│   │   ├── interface.ts
-│   │   └── types
-│   │       └── classify.ts
-│   ├── npm
-│   │   └── package.ts
-│   └── website.ts
-├── favicon.svg
-├── hooks
-│   └── debounce.ts
-├── index.css
-├── locales
-│   ├── en-US.json
-│   ├── index.ts
-│   └── zh-CN.json
-├── logo.svg
-├── main.tsx
-├── pages
-│   ├── help
-│   │   └── index.tsx
-│   ├── index
-│   │   ├── components
-│   │   │   ├── nav-drawer
-│   │   │   │   └── index.tsx
-│   │   │   ├── search-input
-│   │   │   │   ├── engineChip.tsx
-│   │   │   │   ├── index.tsx
-│   │   │   │   └── sugPopper.tsx
-│   │   │   └── sites
-│   │   │       ├── README.md
-│   │   │       ├── dialog.tsx
-│   │   │       ├── index.tsx
-│   │   │       └── siteCard.tsx
-│   │   └── index.tsx
-│   ├── navigation
-│   │   ├── components
-│   │   │   ├── WebisteCard.tsx
-│   │   │   ├── searchInput.tsx
-│   │   │   └── websiteCardNew.tsx
-│   │   └── index.tsx
-│   └── setting
-│       ├── components
-│       │   ├── contentList.tsx
-│       │   ├── contentTitle.tsx
-│       │   ├── itemAccordion.tsx
-│       │   └── itemCard.tsx
-│       └── index.tsx
-├── typings
-│   ├── global.ts
-│   └── index.ts
-├── utils
-│   ├── color.ts
-│   ├── common.ts
-│   ├── info
-│   │   └── index.ts
-│   ├── regexp
-│   │   └── index.ts
-│   ├── request
-│   │   ├── index.ts
-│   │   └── interface.d.ts
-│   ├── storage
-│   │   ├── README.md
-│   │   └── index.ts
-│   ├── theme.ts
-│   └── updateData.ts
-├── views
-│   └── setting
-│       ├── about
-│       │   ├── beta
-│       │   │   ├── docs.mdx
-│       │   │   └── index.tsx
-│       │   ├── commits
-│       │   │   └── index.tsx
-│       │   ├── index.tsx
-│       │   └── releases
-│       │       └── index.tsx
-│       ├── auth
-│       │   ├── components
-│       │   │   ├── accountCard.tsx
-│       │   │   └── handleAccountDialog.tsx
-│       │   ├── index.tsx
-│       │   ├── info.tsx
-│       │   ├── others.tsx
-│       │   └── utils
-│       │       └── acount.ts
-│       ├── data
-│       │   ├── backup
-│       │   │   └── index.tsx
-│       │   └── index.tsx
-│       ├── features
-│       │   ├── engine
-│       │   │   └── index.tsx
-│       │   ├── index.tsx
-│       │   └── message
-│       │       └── index.tsx
-│       ├── lab
-│       │   └── index.tsx
-│       ├── navigation
-│       │   └── index.tsx
-│       ├── otherApis
-│       │   └── index.tsx
-│       └── personalise
-│           ├── background
-│           │   ├── everyDay.tsx
-│           │   ├── index.tsx
-│           │   ├── link.tsx
-│           │   └── random.tsx
-│           ├── components
-│           │   └── example.tsx
-│           ├── index.tsx
-│           ├── logo
-│           │   └── index.tsx
-│           └── theme
-│               └── theme.tsx
-└── vite-env.d.ts
+├──apis 接口相关文件夹
+├── components 组件文件夹
+│   ├── global 通用组件
+│   ├── layout 布局组件
+│   └── md-custom 二次封装 `material-ui` 组件
+├── config 项目配置文件
+├── data 项目静态数据文件
+├── hooks 自定义 `hooks` 文件
+├── locales 多语言文件
+├── pages 页面文件夹
+├── typings 通用类型文件
+├── utils 通用工具函数
+└── views 布局下视图文件
+
 
 ```
 
@@ -316,6 +97,4 @@ src
 
 ## 引用资源
 
-**原项目：**[Search-Next](https://github.com/virzs/Search-Next)
-
-[Search Next—在线预览](http://dev.search.virs.xyz)
+--none--
