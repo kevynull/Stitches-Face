@@ -10,3 +10,13 @@ dist-ssr
 stats.html
 /report/*
 *.env
+
+.czrc
+.editorconfig
+.github
+.jscpd.json
+.prettierignore
+.prettierrc
+.release-it.json
+.vscode
+mv_t.sh
