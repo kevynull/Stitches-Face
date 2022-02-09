@@ -24,6 +24,7 @@ import React from 'react';
 import Auth from '@views/setting/auth';
 import Info from '@views/setting/auth/info';
 import SettingPage from '@pages/setting';
+import SearchPage from '@pages/search';
 import Others from '@/views/setting/auth/others';
 import Personalise from '@/views/setting/personalise';
 import Background from '@/views/setting/personalise/background';
@@ -80,7 +81,7 @@ const routers: Router[] = [
     path: 'search',
     title: '搜索',
     exact: false,
-    component: SettingPage
+    component: SearchPage,
   },
   {
     path: 'setting',

@@ -11,7 +11,7 @@ import { SearchEngineValueTypes } from '@/data/engine';
 import { PageProps } from '@/typings';
 import { getAccount } from '@/views/setting/auth/utils/acount';
 import { IconButton, Tooltip } from '@mui/material';
-import { Bookmarks, BugReport, DataObject, Person, Settings } from '@mui/icons-material';
+import { Bookmarks, BugReport, DataObject, LiveTv, MenuBook, Person, Settings } from '@mui/icons-material';
 import classNames from 'classnames';
 import React from 'react';
 import SearchInput from './components/search-input';
@@ -139,7 +139,25 @@ const IndexPage: React.FC<PageProps> = (props) => {
             />
           </IconButton>
         </Tooltip>
-        <Tooltip title="页面调试">
+        <Tooltip title="视频页面调试">
+          <IconButton>
+            <LiveTv
+              className={classNames({
+                'text-var-main-10': !!bg,
+              })}
+            />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="文章页面调试">
+          <IconButton>
+            <MenuBook
+              className={classNames({
+                'text-var-main-10': !!bg,
+              })}
+            />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="查询页面调试">
           <IconButton onClick={() => history('/search')}>
             <DataObject
               className={classNames({

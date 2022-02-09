@@ -76,41 +76,43 @@ const MenuLayoutNew: React.FC<MenuLayoutNewProps> = ({
   }, [location]);
 
   return (
-    <div className="flex flex-row h-screen bg-gray-70">
-      <div className="w-72 p-4 h-full flex flex-col">
-        <div className="flex gap-1">
-          <Tooltip title="回到首页" arrow>
-            <IconButton
-              size="small"
-              onClick={() => {
-                history('/');
-              }}
-            >
-              <Home />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="返回上级" arrow>
-            <IconButton
-              size="small"
-              onClick={() => {
-                history(-1);
-              }}
-            >
-              <KeyboardBackspace />
-            </IconButton>
-          </Tooltip>
+    <div className=' flex flex-col h-screen bg-cover bg-center bg-secondary'>
+      <div className="flex flex-row h-screen bg-gray-70">
+        <div className="w-72 p-4 h-full flex flex-col">
+          <div className="flex gap-1">
+            <Tooltip title="回到首页" arrow>
+              <IconButton
+                size="small"
+                onClick={() => {
+                  history('/');
+                }}
+              >
+                <Home />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="返回上级" arrow>
+              <IconButton
+                size="small"
+                onClick={() => {
+                  history(-1);
+                }}
+              >
+                <KeyboardBackspace />
+              </IconButton>
+            </Tooltip>
+          </div>
+          <Menu datasource={menuList} mode="route" onChange={onChange} />
+          <div>{menuFooter}</div>
         </div>
-        <Menu datasource={menuList} mode="route" onChange={onChange} />
-        <div>{menuFooter}</div>
+        <div className="h-full overflow-hidden flex flex-col w-full px-6 py-4">
+          <div>{contentHeader}</div>
+          <div className="flex-grow overflow-y-auto w-full my-4 pb-2">
+            <div className="max-w-4xl pl-1">{children}</div>
+          </div>
+        </div>
       </div>
-      <div className="h-full overflow-hidden flex flex-col w-full px-6 py-4">
-        <div>{contentHeader}</div>
-        <div className="flex-grow overflow-y-auto w-full my-4 pb-2">
-          <div className="max-w-4xl pl-1">{children}</div>
-        </div>
-        <div className="text-center max-w-4xl">
-          <Copyright />
-        </div>
+      <div className="flex-grow max-h-8 text-center leading-8">
+        <Copyright />
       </div>
     </div>
   );
