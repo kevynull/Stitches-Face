@@ -1,16 +1,14 @@
 # Stitches-Face
 
-Stitches-Face 为「玩具箱」系列的 Web UI 工程。由于与原始项目的定位纯在差异，本项目针对个性化需求做了对应的代码改装，以及三方接口调用。
+Stitches-Face 为「玩具箱」系列的 Web UI 工程。由于与原始项目的定位存在差异，本项目针对个性化需求做了对应的代码改装，以及三方接口调用。
 
 **原项目：**[Search-Next](https://github.com/virzs/Search-Next)
-
-
 
 ## 启动项目
 
 基础环境需要 nodejs（版本不限，建议最新）、npm（yarn 也可以），涉及梯子问题需要自行`Google（bing）`解决:)
 
-**npm环境**：
+**npm 环境**：
 
 安装依赖：
 
@@ -29,11 +27,10 @@ npm run dev
 ```bash
 npm build
 ```
+
 注：`npm`环境下，`react-darkreader`依赖安装有些问题。需要在外部手动安装后，将`node_modules`文件夹拷入项目中
 
-
-
-**yarn环境**
+**yarn 环境**
 
 安装依赖：
 
@@ -59,8 +56,6 @@ yarn build
 yarn jscpd
 ```
 
-
-
 ## 开发计划
 
 详细内容请查看[开发计划](https://github.com/kevynull/Stitches-Face/projects)
@@ -68,8 +63,6 @@ yarn jscpd
 **多语言：**
 
 VS Code 安装 i18n Ally 插件
-
-
 
 ## 项目结构
 
@@ -92,8 +85,6 @@ src
 
 
 ```
-
-
 
 ## 引用资源
 

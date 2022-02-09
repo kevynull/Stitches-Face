@@ -77,6 +77,12 @@ const routers: Router[] = [
     component: lazy(() => import('@pages/navigation')),
   },
   {
+    path: 'search',
+    title: '搜索',
+    exact: false,
+    component: SettingPage
+  },
+  {
     path: 'setting',
     title: '设置',
     exact: false,

@@ -1,9 +1,10 @@
 /*
- * @Author: Vir
- * @Date: 2021-03-27 15:29:03
- * @Last Modified by: Vir
- * @Last Modified time: 2021-03-27 16:35:59
+ * @Author: kevyn
+ * @Date: 2022-02-08 14:42:44
+ * @LastEditors: kevyn
+ * @LastEditTime: 2022-02-09 15:14:04
  */
+
 
 export interface CopyrightType {
   startTime: string; // 开始时间
@@ -26,8 +27,8 @@ export default {
   href: 'https://search.virs.xyz',
   version: '0.1',
   copyright: {
-    startTime: '2018',
-    href: 'https://search.virs.xyz',
-    author: 'Vir',
+    startTime: '2022',
+    href: 'https://github.com/kevynull/Stitches-Face',
+    author: 'Kevyn',
   },
 };

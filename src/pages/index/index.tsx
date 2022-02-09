@@ -11,7 +11,7 @@ import { SearchEngineValueTypes } from '@/data/engine';
 import { PageProps } from '@/typings';
 import { getAccount } from '@/views/setting/auth/utils/acount';
 import { IconButton, Tooltip } from '@mui/material';
-import { Bookmarks, Settings } from '@mui/icons-material';
+import { Bookmarks, BugReport, DataObject, Person, Settings } from '@mui/icons-material';
 import classNames from 'classnames';
 import React from 'react';
 import SearchInput from './components/search-input';
@@ -121,6 +121,33 @@ const IndexPage: React.FC<PageProps> = (props) => {
       }}
     >
       <div className="index-navbar-box flex-grow max-h-12 text-right align-middle">
+        <Tooltip title="用户">
+          <IconButton>
+            <Person
+              className={classNames({
+                'text-var-main-10': !!bg,
+              })}
+            />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="测试">
+          <IconButton>
+            <BugReport
+              className={classNames({
+                'text-var-main-10': !!bg,
+              })}
+            />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="页面调试">
+          <IconButton onClick={() => history('/search')}>
+            <DataObject
+              className={classNames({
+                'text-var-main-10': !!bg,
+              })}
+            />
+          </IconButton>
+        </Tooltip>
         <Tooltip title="网址导航">
           <IconButton
             onClick={() => {
