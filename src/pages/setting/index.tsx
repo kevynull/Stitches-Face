@@ -63,7 +63,7 @@ const SettingPage: React.FC<SettingPageProps> = ({
   return (
     <div className=' flex flex-col h-screen bg-cover bg-center bg-secondary'>
       <div className="flex flex-row h-screen bg-gray-70">
-        <div className="w-72 p-4 h-full">
+        <div className="w-72 p-4 h-full flex flex-col">
           <div className="flex gap-1">
             <Tooltip title="回到首页" arrow>
               <IconButton

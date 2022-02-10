@@ -9,6 +9,7 @@ import { CopyrightType } from '@/data/main';
 import { copyright as copyrightApi } from '@/apis/common';
 import React from 'react';
 import dayjs from 'dayjs';
+import { Box, Container, Link } from '@mui/material';
 
 interface CopyrightTypeWithVersion extends CopyrightType {
   version?: string;
@@ -32,13 +33,13 @@ const Copyright: React.FC = () => {
   }, []);
 
   return (
-    <a
-      className="copyright inline-block text-sm text-gray-300 hover:text-gray-200 font-mono backdrop-filter backdrop-blur-sm rounded"
-      href={copyright.href}
-    >
-      ©{copyright.startTime}-{endTime} by {copyright.author}. All rights
-      reserved.
-    </a>
+    <Box component="footer" sx={{ py: 3,px: 2, mt: 'auto', }}>
+      <Container maxWidth="sm" className='text-center'>
+        <Link href={copyright.href} underline="none" rel="noopener" target="_blank" className='text-gray-300 font-mono'> 
+        ©{copyright.startTime}-{endTime} by {copyright.author}. All rights reserved.
+        </Link>
+       </Container>
+    </Box>
   );
 };
 

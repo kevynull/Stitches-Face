@@ -70,7 +70,7 @@ const routers: Router[] = [
   {
     path: '/',
     title: '首页',
-    component: lazy(() => import('@pages/index')),
+    component: lazy(() => import('@pages/index2')),
   },
   {
     path: 'navigation/:classify',

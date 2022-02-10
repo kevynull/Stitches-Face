@@ -1,10 +1,12 @@
-import { Breadcrumbs, Chip, IconButton, Link, Tooltip } from '@mui/material';
-import { Home, KeyboardBackspace } from '@mui/icons-material';
+import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
+import { Box, Breadcrumbs, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Divider, Grid, IconButton, Link, Skeleton, Stack, Tooltip, Typography } from '@mui/material';
+import { Bookmarks, BugReport, DataObject, Home, LiveTv, MenuBook, Person, Settings } from '@mui/icons-material';
 import classNames from 'classnames';
 import React from 'react';
 import Copyright from '@/components/global/copyright';
 import { PageProps } from '@/typings';
 import { Router } from '@/config/router';
+import SearchInput from './components/search-mini-input';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 
 export interface SearchPageProps extends PageProps {
@@ -20,6 +22,8 @@ const SearchPage: React.FC<SearchPageProps> = ({
   const location = useLocation();
   const [menuList, setMenuList] = React.useState<Router[] | undefined>([]);
   const [breads, setBreads] = React.useState<Router[]>([]);
+
+  const [bg, setBg] = React.useState<SetBackgroundParams>();
 
   const getBreadCrumbs = (routes: Router[], newLocation?: any) => {
     let breadCrumbs: Router[] = [];
@@ -55,9 +59,9 @@ const SearchPage: React.FC<SearchPageProps> = ({
 
   return (
     <div className=' flex flex-col h-screen bg-cover bg-center bg-secondary'>
-      <div className="flex flex-row h-screen bg-gray-70">
-        <div className="w-72 p-4 h-full">
-          <div className="flex gap-1">
+      <div className="flex-grow max-h-12 align-middle">
+        <Grid container spacing={2}>
+          <Grid item xs={8} >
             <Tooltip title="回到首页" arrow>
               <IconButton
                 size="small"
@@ -69,42 +73,70 @@ const SearchPage: React.FC<SearchPageProps> = ({
               </IconButton>
             </Tooltip>
 
-          </div>
-          <div className="flex flex-col gap-1 my-4">
-            {menuList?.map((i) => (
-              <div
-                key={i.path}
-                className={classNames(
-                  'hover:bg-gray-150',
-                  'transition-all',
-                  'px-2.5',
-                  'py-1.5',
-                  'cursor-pointer',
-                  'rounded',
-                  'text-sm',
-                  'text-gray-800',
-                  {
-                    'bg-gray-150': location.pathname.indexOf(i.path) > -1,
-                  },
-                )}
-                onClick={() => {
-                  history(i.path);
-                }}
-              >
-                {i.title}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="h-full overflow-hidden flex flex-col w-full px-6 py-4">
-          
-          <div className="flex-grow overflow-y-auto w-full">
-            <div className="max-w-4xl">
-              <Outlet />
-            </div>
-          </div>
-        </div>
+          </Grid>
+
+          <Grid item xs={4} className="text-right">
+              <Tooltip title="用户">
+                <IconButton>
+                  <Person
+                    className={classNames({
+                      'text-var-main-10': !!bg,
+                    })}
+                  />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="测试">
+                <IconButton>
+                  <BugReport
+                    className={classNames({
+                      'text-var-main-10': !!bg,
+                    })}
+                  />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="视频页面调试">
+                <IconButton>
+                  <LiveTv
+                    className={classNames({
+                      'text-var-main-10': !!bg,
+                    })}
+                  />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="文章页面调试">
+                <IconButton>
+                  <MenuBook
+                    className={classNames({
+                      'text-var-main-10': !!bg,
+                    })}
+                  />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="查询页面调试">
+                <IconButton onClick={() => history('/search')}>
+                  <DataObject
+                    className={classNames({
+                      'text-var-main-10': !!bg,
+                    })}
+                  />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="设置">
+                <IconButton onClick={() => history('/setting')}>
+                  <Settings
+                    className={classNames({
+                      'text-var-main-10': !!bg,
+                    })}
+                  />
+                </IconButton>
+              </Tooltip>
+          </Grid>
+        </Grid>
         
+        
+      </div>
+      <div className="flex flex-row justify-center bg-gray-70">
+        <SearchInput />
       </div>
       <div className="flex-grow max-h-8 text-center leading-8">
         <Copyright />
