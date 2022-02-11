@@ -117,15 +117,7 @@ const NavigationPage: React.FC<PageProps> = (props) => {
       menu={menu as MenuLayoutMenu[]}
       pathname={basePath}
       onChange={menuChange}
-      menuFooter={
-        <List dense>
-          <MenuListItem
-            icon={<InsertComment />}
-            primary="提交网站"
-            onClick={() => history('/help/commit_website')}
-          />
-        </List>
-      }
+      
     >
       {Recursion(selected)}
     </MenuLayoutNew>
