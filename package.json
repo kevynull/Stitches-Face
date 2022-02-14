@@ -46,6 +46,7 @@
     "i18next": "^21.2.4",
     "i18next-browser-languagedetector": "^6.1.2",
     "less": "^4.1.1",
+    "markdown-to-jsx": "^7.1.6",
     "notistack": "^2.0.3",
     "path": "^0.12.7",
     "react": "^17.0.0",

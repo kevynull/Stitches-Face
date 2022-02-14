@@ -5131,6 +5131,11 @@
   "resolved" "https://registry.npmjs.org/markdown-table/-/markdown-table-3.0.2.tgz"
   "version" "3.0.2"
 
+"markdown-to-jsx@^7.1.6":
+  "integrity" "sha512-1wrIGZYwIG2gR3yfRmbr4FlQmhaAKoKTpRo4wur4fp9p0njU1Hi7vR8fj0AUKKIcPduiJmPprzmCB5B/GvlC7g=="
+  "resolved" "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-7.1.6.tgz"
+  "version" "7.1.6"
+
 "mdast-squeeze-paragraphs@^4.0.0":
   "integrity" "sha512-zxdPn69hkQ1rm4J+2Cs2j6wDEv7O17TfXTJ33tl/+JPIoEmtV9t2ZzBM5LPHE8QlHsmVD8t3vPKCyY3oH+H8MQ=="
   "resolved" "https://registry.npmjs.org/mdast-squeeze-paragraphs/-/mdast-squeeze-paragraphs-4.0.0.tgz"
@@ -6901,7 +6906,7 @@
     "@virtuoso.dev/react-urx" "^0.2.12"
     "@virtuoso.dev/urx" "^0.2.12"
 
-"react@*", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.13.1 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.6", "react@^17.0.0", "react@^17.0.2", "react@>= 16.8.0", "react@>= 16.9.0", "react@>=16", "react@>=16.0.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@>=16.9.0", "react@17.0.2":
+"react@*", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.13.1 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.6", "react@^17.0.0", "react@^17.0.2", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.9.0", "react@>=16", "react@>=16.0.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@>=16.9.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
