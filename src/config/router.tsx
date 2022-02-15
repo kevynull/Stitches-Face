@@ -25,10 +25,10 @@ import Auth from '@views/setting/auth';
 import Info from '@views/setting/auth/info';
 import SettingPage from '@pages/setting';
 import SearchPage from '@pages/search';
+import LoadingTest from '@/components/global/loading';
 import Others from '@/views/setting/auth/others';
 import Personalise from '@/views/setting/personalise';
 import Background from '@/views/setting/personalise/background';
-import Theme from '@/views/setting/personalise/theme/theme';
 import About from '@/views/setting/about';
 import History from '@/views/setting/about/releases';
 import Releases from '@/views/setting/about/releases';
@@ -73,6 +73,11 @@ const routers: Router[] = [
     component: lazy(() => import('@pages/index2')),
   },
   {
+    path: 'loading',
+    title: 'loading',
+    component: LoadingTest,
+  },
+  {
     path: 'navigation/:classify',
     title: '导航',
     component: lazy(() => import('@pages/navigation')),
@@ -80,7 +85,6 @@ const routers: Router[] = [
   {
     path: 'search',
     title: '搜索',
-    exact: false,
     component: SearchPage,
   },
   {
@@ -127,13 +131,6 @@ const routers: Router[] = [
             path: 'logo',
             component: Logo,
           },
-          // ! 主题功能暂时不开发，优先重构
-          // {
-          //   title: '主题',
-          //   icon: <ColorLens />,
-          //   path: '/setting/personalise/theme',
-          //   component: Theme,
-          // },
         ],
       },
       {
@@ -218,11 +215,6 @@ const routers: Router[] = [
         ],
       },
     ],
-  },
-  {
-    path: '/help/:text',
-    title: '帮助',
-    component: lazy(() => import('@pages/help')),
   },
 ];
 

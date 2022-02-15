@@ -11,7 +11,6 @@ import GlobalLoading from './components/global/loading';
 import routers, { Router } from './config/router';
 import RenderContent from './components/global/renderContent';
 import { SnackbarProvider } from 'notistack';
-
 // 处理路由数据
 const Recursive = (routes: Router[], parent?: Router, basePath?: string) => {
   let list = routes;
@@ -57,7 +56,11 @@ function App(props: any) {
           }}
         >
           <HashRouter>
-            <Routes>{Recursive(routers)}</Routes>
+            
+            <Routes>
+              {Recursive(routers)}
+              <Route path='*' element={<GlobalLoading />} />
+            </Routes>
           </HashRouter>
         </SnackbarProvider>
       </Suspense>
