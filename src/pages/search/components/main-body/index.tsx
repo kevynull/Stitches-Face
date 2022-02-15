@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-14 14:00:07
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-14 16:13:12
+ * @LastEditTime: 2022-02-15 13:07:14
  */   
 import React from 'react';
 import Grid from '@mui/material/Grid';
@@ -48,7 +48,7 @@ const MainBody: React.FC<MainProps> = ({
       </Typography>
       <Divider />
       {posts.map((post) => (
-        <Box className='search'>
+        <Box key={post.id} className='search'>
           <Typography gutterBottom variant="h5" component="h2">
             {post.name}
           </Typography>

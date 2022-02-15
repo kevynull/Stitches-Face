@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-10 16:29:47
+ * @LastEditTime: 2022-02-15 13:43:33
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
@@ -132,7 +132,7 @@ const IndexPage: React.FC<PageProps> = (props) => {
             </IconButton>
           </Tooltip>
           <Tooltip title="测试">
-            <IconButton>
+            <IconButton onClick={() => history('/loading')}>
               <BugReport className={classNames({'text-var-main-10': !!bg,})} />
             </IconButton>
           </Tooltip>
