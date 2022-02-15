@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-15 13:43:33
+ * @LastEditTime: 2022-02-15 19:18:30
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
@@ -185,7 +185,7 @@ const IndexPage: React.FC<PageProps> = (props) => {
           style={{
             height:
               zoom && logoRef && logoRef.current
-                ? `${logoRef.current.clientHeight * 0.5}px`
+                ? '35%'
                 : '100%',
           }}
         >
@@ -197,9 +197,12 @@ const IndexPage: React.FC<PageProps> = (props) => {
             onPressEnter={handleSearch}
             onBtnClick={handleSearch}
             onFocus={() => {
+              
               logoData.zoom && setZoom(true);
             }}
-            onBlur={() => setZoom(false)}
+            onBlur={() => {
+              setZoom(false);
+            }}
           />
         </div>
         <div className="index-content-box flex-grow">
