@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-15 19:18:30
+ * @LastEditTime: 2022-02-16 16:26:10
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
@@ -14,7 +14,7 @@ import { Box, Container, CssBaseline, IconButton, Tooltip } from '@mui/material'
 import { Bookmarks, BugReport, DataObject, LiveTv, MenuBook, Person, Settings } from '@mui/icons-material';
 import classNames from 'classnames';
 import React from 'react';
-import SearchInput from './components/search-input';
+import SearchInput from '@/components/search/search-input';
 import Sites from './components/sites';
 import { useTranslation } from 'react-i18next';
 import { AuthLogo, Navigation } from '@/data/account/interface';
@@ -42,7 +42,9 @@ const IndexPage: React.FC<PageProps> = (props) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   const handleSearch = (value: string, engine: SearchEngineValueTypes) => {
-    window.open(`${engine.href}${value}`);
+    //window.open(`${engine.href}${value}`);
+    console.log(`${engine.href}${value}`);
+    
   };
 
   // 获取并设置logo
@@ -197,7 +199,6 @@ const IndexPage: React.FC<PageProps> = (props) => {
             onPressEnter={handleSearch}
             onBtnClick={handleSearch}
             onFocus={() => {
-              
               logoData.zoom && setZoom(true);
             }}
             onBlur={() => {

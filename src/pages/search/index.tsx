@@ -6,10 +6,12 @@ import React from 'react';
 import Copyright from '@/components/global/copyright';
 import { PageProps } from '@/typings';
 import { Router } from '@/config/router';
-import SearchInput from './components/search-input';
+import SearchInput from '@/components/search/search-input';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import MainBody from './components/main-body';
 import Sidebar from './components/sidebar';
+import { useTranslation } from 'react-i18next';
+import { SearchEngineValueTypes } from '@/data/engine';
 
 
 export interface SearchPageProps extends PageProps {
@@ -22,6 +24,13 @@ const SearchPage: React.FC<SearchPageProps> = ({
   ...props
 }) => {
   const history = useNavigate();
+
+  const { t, i18n } = useTranslation();
+
+  const handleSearch = (value: string, engine: SearchEngineValueTypes) => {
+    // window.open(`${engine.href}${value}`);
+    console.log(`${engine.href}${value}`);
+  };
 
   const data = [
     {
@@ -213,7 +222,11 @@ const sidebar = {
           </Grid>
         </div>
         <div className="flex flex-row justify-center bg-gray-70">
-          <SearchInput />
+          <SearchInput 
+            placeholder={t('placeholder.qing-shu-ru-sou-suo-nei-rong')}
+            onPressEnter={handleSearch}
+            onBtnClick={handleSearch}
+          />
         </div>
         <main>
           <Grid container spacing={5} sx={{ mt: 3 }}>

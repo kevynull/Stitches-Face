@@ -94,7 +94,11 @@ const SearchInput: React.FC<SearchInputProps> = ({
   };
 
   const handleBtnClick = () => {
-    if (onBtnClick) onBtnClick(inputValue, engine);
+    if (onBtnClick) {
+      onBtnClick(inputValue, engine);
+      // 点击按钮后关闭自动建议
+      setSugOpen(false);
+    }
   };
 
   const chipChange = (value: SearchEngineValueTypes) => {

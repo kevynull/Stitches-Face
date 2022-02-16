@@ -88,7 +88,6 @@ const SugPopper: React.FC<SugPopperProps> = ({
       }
     }
   }, [code]);
-
   return (
     <Popper
       open={open && wd.length > 0}
@@ -98,40 +97,37 @@ const SugPopper: React.FC<SugPopperProps> = ({
       container={anchorEl}
       className="z-10 top-auto left-auto"
     >
-      {({ TransitionProps }) => (
-        <Card
-          {...TransitionProps}
-          className="mt-1"
-          style={{ width: `${anchorEl?.clientWidth}px` }}
-        >
-          <Spin spinning={refresh} indicator={<LoadingOutlined spin />}>
-            {sugList.length ? (
-              <>
-                <List disablePadding>
-                  {sugList.map((i, j) => (
-                    <ListItem
-                      button
-                      key={j}
-                      className={classNames({
-                        'bg-gray-100': selectedIndex === j,
-                      })}
-                      onClick={() => {
-                        setSelectedIndex(j);
-                        onSelect(i.content);
-                      }}
-                    >
-                      {i.content}
-                    </ListItem>
-                  ))}
-                </List>
-                <p className="px-5 py-2 text-right">数据来源：{engine.name}</p>
-              </>
-            ) : (
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
-            )}
-          </Spin>
-        </Card>
-      )}
+      <Card
+        className="mt-1"
+        style={{ width: `${anchorEl?.clientWidth}px` }}
+      >
+        <Spin spinning={refresh} indicator={<LoadingOutlined spin />}>
+          {sugList.length ? (
+            <>
+              <List disablePadding >
+                {sugList.map((i, j) => (
+                  <ListItem
+                    button
+                    key={j}
+                    className={classNames({
+                      'bg-gray-100': selectedIndex === j,
+                    })}
+                    onClick={() => {
+                      setSelectedIndex(j);
+                      onSelect(i.content);
+                    }}
+                  >
+                    {i.content}
+                  </ListItem>
+                ))}
+              </List>
+              <p className="px-5 py-2 text-right">数据来源：{engine.name}</p>
+            </>
+          ) : (
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          )}
+        </Spin>
+      </Card>
     </Popper>
   );
 };
