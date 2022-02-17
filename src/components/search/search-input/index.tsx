@@ -160,25 +160,24 @@ const SearchInput: React.FC<SearchInputProps> = ({
         >
           {t('sou-suo')}
         </Button>
-      </div>
-      <SugPopper
-        open={sugOpen}
-        wd={wd}
-        code={code}
-        anchorEl={sugAnchorEl}
-        onKeySelect={(content) => {
-          setInputValue(content);
-          console.log('onkeyselect');
-        }}
-        onSelect={(content) => {
-          if (onBtnClick) {
-            console.log('onselect');
+        <SugPopper
+          open={sugOpen}
+          wd={wd}
+          code={code}
+          anchorEl={sugAnchorEl}
+          onKeySelect={(content) => {
             setInputValue(content);
-            setSugOpen(false);
-            onBtnClick(content, engine);
-          }
-        }}
-      />
+          }}
+          onSelect={(content) => {
+            if (onBtnClick) {
+              setInputValue(content);
+              setSugOpen(false);
+              onBtnClick(content, engine);
+            }
+          }}
+        />
+      </div>
+      
     </div>
   );
 };

@@ -92,10 +92,9 @@ const SugPopper: React.FC<SugPopperProps> = ({
     <Popper
       open={open && wd.length > 0}
       anchorEl={anchorEl}
-      transition
       placement="bottom"
       container={anchorEl}
-      className="z-10 top-auto left-auto"
+      className="z-10 top-0"
     >
       <Card
         className="mt-1"
