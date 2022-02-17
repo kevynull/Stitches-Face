@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-16 16:26:10
+ * @LastEditTime: 2022-02-17 15:32:02
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
@@ -22,6 +22,7 @@ import { getAuthDataByKey } from '@/apis/auth';
 import { ClockData } from '@/data/logo';
 import NavDrawer from './components/nav-drawer';
 import { useNavigate } from 'react-router-dom';
+import { valueToPercent } from '@mui/base';
 
 
 const IndexPage: React.FC<PageProps> = (props) => {
@@ -46,6 +47,12 @@ const IndexPage: React.FC<PageProps> = (props) => {
     console.log(`${engine.href}${value}`);
     
   };
+  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let str = e.currentTarget.value;
+    if (str.length == 0){
+      setZoom(false);
+    }
+  }
 
   // 获取并设置logo
   const setLogoSetting = () => {
@@ -201,9 +208,7 @@ const IndexPage: React.FC<PageProps> = (props) => {
             onFocus={() => {
               logoData.zoom && setZoom(true);
             }}
-            onBlur={() => {
-              setZoom(false);
-            }}
+            onBlur={handleBlur}
           />
         </div>
         <div className="index-content-box flex-grow">

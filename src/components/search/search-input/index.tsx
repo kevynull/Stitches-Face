@@ -177,7 +177,6 @@ const SearchInput: React.FC<SearchInputProps> = ({
           }}
         />
       </div>
-      
     </div>
   );
 };
