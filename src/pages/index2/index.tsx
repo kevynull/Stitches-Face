@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-17 16:30:39
+ * @LastEditTime: 2022-02-17 17:03:00
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
@@ -20,7 +20,6 @@ import { useTranslation } from 'react-i18next';
 import { AuthLogo, Navigation } from '@/data/account/interface';
 import { getAuthDataByKey } from '@/apis/auth';
 import { ClockData } from '@/data/logo';
-import NavDrawer from './components/nav-drawer';
 import { useNavigate } from 'react-router-dom';
 import { valueToPercent } from '@mui/base';
 import PageHeader from '@/components/global/page-header';
@@ -79,13 +78,7 @@ const IndexPage: React.FC<PageProps> = (props) => {
     );
   };
 
-  // 获取并设置 导航
-  const setNavigationSetting = () => {
-    const id = localStorage.getItem('account');
-    if (!id) return;
-    const navigationData = getAuthDataByKey(id, 'navigation');
-    setNavigationData(navigationData);
-  };
+
 
   const setBackground = () => {
     const user = getAccount();
@@ -113,7 +106,6 @@ const IndexPage: React.FC<PageProps> = (props) => {
   React.useEffect(() => {
     setBackground();
     setLogoSetting();
-    setNavigationSetting();
   }, []);
 
   return (
@@ -139,18 +131,8 @@ const IndexPage: React.FC<PageProps> = (props) => {
             <PageHeader 
               background={bg ? true : false}
             />
-            <Tooltip title="网址导航">
-              <IconButton
-                onClick={() => {
-                  const type = navigationData.type ?? 'page';
-                  if (type == 'drawer') {
-                    setNavOpen(true);
-                  }
-                }}
-              >
-                <Bookmarks className={classNames({'text-var-main-10': !!bg,})} />
-              </IconButton>
-            </Tooltip>
+            
+            
         </Box>
         <div
           ref={logoRef}
@@ -184,7 +166,6 @@ const IndexPage: React.FC<PageProps> = (props) => {
         </div>
       </Container>
       <Copyright />
-      <NavDrawer open={navOpen} onClose={() => setNavOpen(false)} />
     </Box>
   );
 };
