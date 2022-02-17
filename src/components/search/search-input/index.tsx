@@ -68,11 +68,17 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     setWd(e.target.value);
-    if (onChange) onChange(e, e.target.value, engine);
+    setSugOpen(true);
+    if (onChange) {
+      onChange(e, e.target.value, engine);
+    }
   };
 
   const handleFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onFocus) onFocus(e);
+    if (onFocus) {
+      setSugOpen(true);
+      onFocus(e);
+    }
   };
 
   const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,10 +87,15 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     // 相应键盘 Enter 事件
-    if (e.code === 'Enter' && onPressEnter) onPressEnter(inputValue, engine);
+    if (e.code === 'Enter' && onPressEnter) {
+      onPressEnter(inputValue, engine);
+      setSugOpen(false);
+    }
     // 相应键盘 方向键 上下 事件
     if (e.code === 'ArrowDown' || e.code === 'ArrowUp') {
-      if (onArrow) onArrow(e.code);
+      if (onArrow) {
+        onArrow(e.code);
+      }
       setCode(e.code);
     }
   };
@@ -100,6 +111,10 @@ const SearchInput: React.FC<SearchInputProps> = ({
       setSugOpen(false);
     }
   };
+
+  const handleSug = () => {
+    setSugOpen(true);
+  }
 
   const chipChange = (value: SearchEngineValueTypes) => {
     setEngine(value);
@@ -131,6 +146,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
           onKeyUp={handleKeyUp}
+          onClick={handleSug}
           {...props}
         />
         <Button
@@ -150,9 +166,15 @@ const SearchInput: React.FC<SearchInputProps> = ({
         anchorEl={sugAnchorEl}
         onKeySelect={(content) => {
           setInputValue(content);
+          console.log('onkeyselect');
         }}
         onSelect={(content) => {
-          if (onBtnClick) onBtnClick(content, engine);
+          if (onBtnClick) {
+            console.log('onselect');
+            setInputValue(content);
+            setSugOpen(false);
+            onBtnClick(content, engine);
+          }
         }}
       />
     </div>
