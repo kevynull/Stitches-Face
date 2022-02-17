@@ -90,6 +90,8 @@ const SearchInput: React.FC<SearchInputProps> = ({
     if (e.code === 'Enter' && onPressEnter) {
       onPressEnter(inputValue, engine);
       setSugOpen(false);
+      // 回车后失焦
+      e.currentTarget.blur()
     }
     // 相应键盘 方向键 上下 事件
     if (e.code === 'ArrowDown' || e.code === 'ArrowUp') {
