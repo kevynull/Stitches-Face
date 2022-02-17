@@ -1,7 +1,6 @@
 
 import { Box, Container, CssBaseline, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub, BugReport, DataObject, Twitter, Facebook, LiveTv, MenuBook, Person, Reddit, Settings } from '@mui/icons-material';
-import classNames from 'classnames';
 import React from 'react';
 import Copyright from '@/components/global/copyright';
 import { PageProps } from '@/typings';
@@ -12,6 +11,7 @@ import MainBody from './components/main-body';
 import Sidebar from './components/sidebar';
 import { useTranslation } from 'react-i18next';
 import { SearchEngineValueTypes } from '@/data/engine';
+import PageHeader from '@/components/global/page-header';
 
 
 export interface SearchPageProps extends PageProps {
@@ -180,47 +180,11 @@ const sidebar = {
     >
       <CssBaseline />
       <Container maxWidth="xl">
-        <div className="flex-grow max-h-12 align-middle">
-          <Grid item xs={12} className="text-right">
-              <Tooltip title="用户">
-                <IconButton>
-                  <Person />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="手办页面调试">
-                <IconButton>
-                  <Reddit />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="测试">
-                <IconButton onClick={() => {
-                  history('/');
-                }}>
-                  <BugReport />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="视频页面调试">
-                <IconButton>
-                  <LiveTv />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="文章页面调试">
-                <IconButton>
-                  <MenuBook />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="查询页面调试">
-                <IconButton onClick={() => history('/search')}>
-                  <DataObject />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="设置">
-                <IconButton onClick={() => history('/setting')}>
-                  <Settings />
-                </IconButton>
-              </Tooltip>
-          </Grid>
-        </div>
+        <Box className="flex-grow max-h-12 text-right align-middle">
+          <PageHeader 
+            background={false}
+          />
+        </Box>
         <div className="flex flex-row justify-center bg-gray-70">
           <SearchInput 
             placeholder={t('placeholder.qing-shu-ru-sou-suo-nei-rong')}

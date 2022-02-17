@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-17 15:32:02
+ * @LastEditTime: 2022-02-17 16:30:39
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
@@ -23,6 +23,7 @@ import { ClockData } from '@/data/logo';
 import NavDrawer from './components/nav-drawer';
 import { useNavigate } from 'react-router-dom';
 import { valueToPercent } from '@mui/base';
+import PageHeader from '@/components/global/page-header';
 
 
 const IndexPage: React.FC<PageProps> = (props) => {
@@ -134,56 +135,23 @@ const IndexPage: React.FC<PageProps> = (props) => {
     >
       <CssBaseline />
       <Container maxWidth="xl">
-        <div className="index-navbar-box flex-grow max-h-12 text-right align-middle">
-          <Tooltip title="用户">
-            <IconButton>
-              <Person className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="测试">
-            <IconButton onClick={() => history('/loading')}>
-              <BugReport className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="视频页面调试">
-            <IconButton>
-              <LiveTv className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="文章页面调试">
-            <IconButton>
-              <MenuBook className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="查询页面调试">
-            <IconButton onClick={() => history('/search')}>
-              <DataObject className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="网址导航">
-            <IconButton
-              onClick={() => {
-                const type = navigationData.type ?? 'page';
-                switch (type) {
-                  case 'drawer':
+        <Box className="flex-grow max-h-12 text-right align-middle">
+            <PageHeader 
+              background={bg ? true : false}
+            />
+            <Tooltip title="网址导航">
+              <IconButton
+                onClick={() => {
+                  const type = navigationData.type ?? 'page';
+                  if (type == 'drawer') {
                     setNavOpen(true);
-                    break;
-                  case 'page':
-                  default:
-                    history('/navigation/*');
-                    break;
-                }
-              }}
-            >
-              <Bookmarks className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="设置">
-            <IconButton onClick={() => history('/setting')}>
-              <Settings className={classNames({'text-var-main-10': !!bg,})} />
-            </IconButton>
-          </Tooltip>
-        </div>
+                  }
+                }}
+              >
+                <Bookmarks className={classNames({'text-var-main-10': !!bg,})} />
+              </IconButton>
+            </Tooltip>
+        </Box>
         <div
           ref={logoRef}
           className={classNames(
