@@ -43,6 +43,7 @@ import OtherApis from '@/views/setting/otherApis';
 import Message from '@/views/setting/features/message';
 import Engine from '@/views/setting/features/engine';
 import Beta from '@/views/setting/about/beta';
+import Konami from '@/components/global/konami';
 
 /**
  * 关于 component 额外说明
@@ -76,6 +77,11 @@ const routers: Router[] = [
     path: 'loading',
     title: 'loading',
     component: LoadingTest,
+  },
+  {
+    path: 'konami',
+    title: 'konami',
+    component: Konami,
   },
   {
     path: 'navigation/:classify',

@@ -2,9 +2,9 @@
  * @Author: kevyn
  * @Date: 2022-02-16 14:11:48
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-17 17:03:37
+ * @LastEditTime: 2022-02-21 19:48:25
  */
-import { Box, Container, CssBaseline, Grid, IconButton, Tooltip, Typography } from '@mui/material';
+import { Box, Container, CssBaseline, Grid, Hidden, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub, BugReport, DataObject, Twitter, Facebook, LiveTv, MenuBook, Person, Reddit, Settings, Bookmarks, Home } from '@mui/icons-material';
 import React from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
@@ -47,16 +47,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
   return (
     <span>
-      <NavDrawer open={navOpen} onClose={() => setNavOpen(false)} />
-      <Tooltip title="网址导航-on">
-        <IconButton
-          onClick={() => {
-              setNavOpen(true);
-          }}
-        >
-          <Bookmarks className={classNames({'text-var-main-10': !!bg,})} />
-        </IconButton>
-      </Tooltip>
+      <Hidden>
+        <NavDrawer open={navOpen} onClose={() => setNavOpen(false)} />
+      </Hidden>
       <Tooltip title="用户">
         <IconButton onClick={() => {
             history('/');
@@ -69,8 +62,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           <Person className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
-      <Tooltip title="测试">
+      <Tooltip title="加载页面调试">
         <IconButton onClick={() => history('/loading')}>
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Konami页面调试">
+        <IconButton onClick={() => history('/konami')}>
           <BugReport className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
@@ -87,6 +85,15 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       <Tooltip title="查询页面调试">
         <IconButton onClick={() => history('/search')}>
           <DataObject className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="网址导航-nav">
+        <IconButton
+          onClick={() => {
+            setNavOpen(true);
+          }}
+        >
+          <Bookmarks className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="网址导航">
