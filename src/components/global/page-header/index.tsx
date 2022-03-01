@@ -2,10 +2,10 @@
  * @Author: kevyn
  * @Date: 2022-02-16 14:11:48
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-21 19:48:25
+ * @LastEditTime: 2022-02-23 15:16:51
  */
 import { Box, Container, CssBaseline, Grid, Hidden, IconButton, Tooltip, Typography } from '@mui/material';
-import { GitHub, BugReport, DataObject, Twitter, Facebook, LiveTv, MenuBook, Person, Reddit, Settings, Bookmarks, Home } from '@mui/icons-material';
+import { GitHub, BugReport, DataObject, Twitter, Facebook, LiveTv, MenuBook, Person, Reddit, Settings, Bookmarks, Home, Autorenew, Egg, TextSnippet } from '@mui/icons-material';
 import React from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
@@ -50,36 +50,57 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       <Hidden>
         <NavDrawer open={navOpen} onClose={() => setNavOpen(false)} />
       </Hidden>
-      <Tooltip title="用户">
+      
+      <Tooltip title="回到首页">
         <IconButton onClick={() => {
             history('/');
           }}>
-          <Home className={classNames({'text-var-main-10': !!bg,})} />
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
-      <Tooltip title="用户">
-        <IconButton>
-          <Person className={classNames({'text-var-main-10': !!bg,})} />
+      <Tooltip title="chess5334页面调试">
+        <IconButton onClick={() => alert()}>
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="登陆页面调试">
+        <IconButton onClick={() => alert()}>
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="注册页面调试">
+        <IconButton onClick={() => alert()}>
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="文章列表页面调试">
+        <IconButton onClick={() => alert()}>
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="文章编辑页面调试">
+        <IconButton onClick={() => history('/editor')}>
+          <TextSnippet className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="加载页面调试">
         <IconButton onClick={() => history('/loading')}>
-          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+          <Autorenew className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="Konami页面调试">
         <IconButton onClick={() => history('/konami')}>
-          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
+          <Egg className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="视频页面调试">
         <IconButton>
-          <LiveTv className={classNames({'text-var-main-10': !!bg,})} />
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="文章页面调试">
         <IconButton>
-          <MenuBook className={classNames({'text-var-main-10': !!bg,})} />
+          <BugReport className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="查询页面调试">
@@ -112,6 +133,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           }}
         >
           <Bookmarks className={classNames({'text-var-main-10': !!bg,})} />
+        </IconButton>
+      </Tooltip>
+      
+      <Tooltip title="用户">
+        <IconButton>
+          <Person className={classNames({'text-var-main-10': !!bg,})} />
         </IconButton>
       </Tooltip>
       <Tooltip title="设置">

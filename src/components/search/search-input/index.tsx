@@ -109,7 +109,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const handleBtnClick = () => {
     if (onBtnClick) {
       onBtnClick(inputValue, engine);
-      // 点击按钮后关闭自动建议
+      // 点击按钮后关闭自动建议下拉列表
       setSugOpen(false);
     }
   };

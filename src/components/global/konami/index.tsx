@@ -2,9 +2,9 @@
  * @Author: kevyn
  * @Date: 2021-03-17 17:33:26
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-21 20:38:46
+ * @LastEditTime: 2022-02-22 10:39:30
  */
-import { Button } from '@mui/material';
+//import { Button } from '@mui/material';
 import React from 'react';
 import { useEffect, useCallback, useRef, useState } from 'react'
 
@@ -51,11 +51,10 @@ export function useKonamiCode(
   const buffer = useRef<string[]>([])
 
   const keySequence = useCallback((event: KeyboardEvent) => {
-  
 
     if (event.defaultPrevented) return
-    console.log(buffer.current.length);
 
+    
     if (event.key === sequence[buffer.current.length] 
       || event.key.toUpperCase() === sequence[buffer.current.length] ) {
       buffer.current = [...buffer.current, event.key]

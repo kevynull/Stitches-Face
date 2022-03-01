@@ -44,6 +44,7 @@ import Message from '@/views/setting/features/message';
 import Engine from '@/views/setting/features/engine';
 import Beta from '@/views/setting/about/beta';
 import Konami from '@/components/global/konami';
+import EditorPage from '@/pages/editor';
 
 /**
  * 关于 component 额外说明
@@ -92,6 +93,11 @@ const routers: Router[] = [
     path: 'search',
     title: '搜索',
     component: SearchPage,
+  },
+  {
+    path: 'editor',
+    title: '编辑文本',
+    component: EditorPage,
   },
   {
     path: 'setting',

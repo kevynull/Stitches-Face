@@ -1,5 +1,5 @@
 
-import { Box, Container, CssBaseline, Grid, IconButton, Tooltip, Typography } from '@mui/material';
+import { Box, Container, CssBaseline, Divider, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub, BugReport, DataObject, Twitter, Facebook, LiveTv, MenuBook, Person, Reddit, Settings } from '@mui/icons-material';
 import React from 'react';
 import Copyright from '@/components/global/copyright';
@@ -12,6 +12,7 @@ import Sidebar from './components/sidebar';
 import { useTranslation } from 'react-i18next';
 import { SearchEngineValueTypes } from '@/data/engine';
 import PageHeader from '@/components/global/page-header';
+import { css } from '@emotion/css';
 
 
 export interface SearchPageProps extends PageProps {
@@ -23,7 +24,6 @@ const SearchPage: React.FC<SearchPageProps> = ({
   route,
   ...props
 }) => {
-  const history = useNavigate();
 
   const { t, i18n } = useTranslation();
 
@@ -185,13 +185,14 @@ const sidebar = {
             background={false}
           />
         </Box>
-        <div className="flex flex-row justify-center bg-gray-70">
+        <div className="flex flex-row justify-center bg-gray-70" >
           <SearchInput 
             placeholder={t('placeholder.qing-shu-ru-sou-suo-nei-rong')}
             onPressEnter={handleSearch}
             onBtnClick={handleSearch}
           />
         </div>
+        
         <main>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <MainBody title="2,380,000 条结果" posts={data} />

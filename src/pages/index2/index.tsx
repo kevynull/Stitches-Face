@@ -2,7 +2,7 @@
  * @Author: kevyn
  * @Date: 2022-02-10 14:17:38
  * @LastEditors: kevyn
- * @LastEditTime: 2022-02-17 17:03:00
+ * @LastEditTime: 2022-02-28 13:50:18
  */
 
 import { latestImg, SetBackgroundParams } from '@/apis/setting/background';
