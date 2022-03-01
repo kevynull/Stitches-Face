@@ -2,14 +2,13 @@
  * @Author: kevyn
  * @Date: 2022-02-23 10:37:04
  * @LastEditors: kevyn
- * @LastEditTime: 2022-03-01 12:37:34
+ * @LastEditTime: 2022-03-01 12:43:37
  */
 import { PageProps } from '@/typings';
 import { Add, AddCircle, AddCircleOutline, Article, BugReport, Home, MoreVert, Search, Settings } from '@mui/icons-material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Avatar, BottomNavigation, BottomNavigationAction, Box, Button, Card, CardActionArea, CardContent, CardHeader, Checkbox, Container, Divider, FormControl, Grid, IconButton, InputAdornment, InputLabel, List, ListItem, ListItemButton, ListItemIcon, ListItemText, OutlinedInput, Paper, Stack, TextField, Tooltip, Typography } from '@mui/material';
-import { red } from '@mui/material/colors';
-import { height } from '@mui/system';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import React from 'react';
 import Vditor from "vditor"
 import 'vditor/dist/index.css'
@@ -41,6 +40,7 @@ const EditorPage: React.FC<EditorPageProps> = ({
   const heightEditor = {
     height: 'calc(100% - ' + heightTitle + ')',
   };
+  const history = useNavigate();
 
   const [dense, setDense] = React.useState(false);
 
@@ -88,7 +88,9 @@ const EditorPage: React.FC<EditorPageProps> = ({
             >
               <Box>
                 <Tooltip title="回到首页">
-                  <IconButton>
+                  <IconButton onClick={() =>{
+                    history('/')
+                  }}>
                     <Home fontSize="large"  />
                   </IconButton>
                 </Tooltip>
